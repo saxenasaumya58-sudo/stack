@@ -177,7 +177,7 @@ test("transfer limits and rolling window share one non-expiring policy", () => {
   });
   const transferSource = source("lib/reputation-transfer.js");
   assert.match(transferSource, /REPUTATION_TRANSFER_POLICY\.rollingWindowMs/);
-  assert.doesNotMatch(transferSource, /localhost|new Date\(["'][0-9]{4}-/i);
+  assert.doesNotMatch(transferSource, /https?:\/\/|new Date\(["'][0-9]{4}-/i);
   for (const locale of ["en", "es", "hi", "pt", "fr", "zh"]) {
     const messages = JSON.parse(
       source(`locales/${locale}/ui.json`),
