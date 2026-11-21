@@ -10,7 +10,7 @@ import {
 } from "@/lib/i18n/config";
 
 export async function generateMetadata() {
-  const requestedLanguage = cookies().get("lang")?.value;
+  const requestedLanguage = (await cookies()).get("lang")?.value;
   const language = locales.includes(requestedLanguage)
     ? requestedLanguage
     : defaultLocale;
@@ -51,7 +51,7 @@ export default async function RootLayout({ children }) {
         avatarUrl: auth.user.avatarUrl,
       }
     : null;
-  const requestedLanguage = cookies().get("lang")?.value;
+  const requestedLanguage = (await cookies()).get("lang")?.value;
   const initialLanguage = locales.includes(initialUser?.language)
     ? initialUser.language
     : locales.includes(requestedLanguage)
