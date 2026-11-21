@@ -1,11 +1,12 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "crons": [
     {
-      "path": "/api/cron/reconcile-reputation-transfers",
-      "schedule": "*/5 * * * *"
+      "path": "/api/cron/sync-everything",
+      "schedule": "0 1 * * *"
     },
     {
-      "path": "/api/cron/expire-subscriptions",
+      "path": "/api/cron/cleanup",
       "schedule": "0 0 * * *"
     }
   ]
